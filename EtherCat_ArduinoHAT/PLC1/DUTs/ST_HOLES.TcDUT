@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
+  <DUT Name="ST_HOLES" Id="{89410790-9301-4079-8ba0-6dd0d01960c1}">
+    <Declaration><![CDATA[TYPE ST_HOLES :
+STRUCT
+	rX : REAL;
+	rY : REAL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

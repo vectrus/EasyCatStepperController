@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
+  <GVL Name="MAINVARS" Id="{9125de15-c058-47c5-a4ef-83acb60480b7}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	Ana0 AT %I* : INT;
+	Ana1 AT %I* : INT;
+	
+	BitOut0 AT %Q* : BOOL := TRUE; // Enable motor 1
+	BitOut1 AT %Q* : BOOL := FALSE; // Direction motor 1 
+	BitOut2 AT %Q* : BOOL := FALSE; // Step motor 1
+	BitOut3 AT %Q* : BOOL := FALSE;  // BUSY motor 1
+	BitOut4 AT %Q* : BOOL := FALSE; // Alarm motor 1
+	
+	BitOut5 AT %Q* : BOOL := TRUE;  // Enable motor 2 
+	BitOut6 AT %Q* : BOOL := FALSE; // Direction  motor 2
+	BitOut7 AT %Q* : BOOL := FALSE; // Step Motor 2
+	BitOut8 AT %Q* : BOOL := FALSE; //  Busy motor 2
+	BitOut9 AT %Q* : BOOL := FALSE; // Alamrm motor 2 
+	
+	BitOut10 AT %I* : REAL := 0.0;  //  SetSpeed 1
+	BitOut11 AT %I* : REAL := 0.0;  //  SetSpeed 2
+	BitOut12 AT %I* : REAL := 0.0;  //  ToPosition 1
+	BitOut13 AT %I* : REAL := 0.0;  //  ToPosition 2
+ 
+	
+	BitIn0 AT %I* : BOOL := FALSE;  // Limit 1/1
+	BitIn1 AT %I* : BOOL := FALSE;  // Limit 1/2
+	BitIn2 AT %I* : BOOL := FALSE;	// Limit 2/1
+	BitIn3 AT %I* : BOOL := FALSE;  // Limit 2/2
+	BitIn4 AT %I* : BOOL := FALSE;	// Busy M1
+	BitIn5 AT %I* : BOOL := FALSE;  // Busy M1
+	BitIn6 AT %I* : BOOL := FALSE;	// Alarm M1
+	BitIn7 AT %I* : BOOL := FALSE;  // Alarm M2
+	BitIn8 AT %I* : BOOL := FALSE;  // M1 IsHomed
+	BitIn9 AT %I* : BOOL := FALSE;  // M2 IsHomed
+
+	
+
+	GlobalAlarm: BOOL := 0;
+	EmergencyStop: BOOL := 0;
+	AlarmMessage: STRING := 'No alarm';
+	ContToNextStage: INT := 0;;
+	MachineState: INT := 0;
+	PreviousMachineState: INT;
+	Start: BOOL := FALSE;
+	heartbeat : BYTE;
+	
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

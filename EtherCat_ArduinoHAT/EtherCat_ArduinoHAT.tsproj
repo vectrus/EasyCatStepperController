@@ -1,0 +1,423 @@
+<?xml version="1.0"?>
+<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.4">
+	<Project ProjectGUID="{DCF76E3D-BAD8-4461-8230-71B4D737C185}" Target64Bit="true" ShowHideConfigurations="#x106">
+		<System>
+			<Settings MaxCpus="4" DontCheckTarget="192.168.1.8.1.1"/>
+			<Tasks>
+				<Task Id="3" Priority="20" CycleTime="10000" AmsPort="350" AdtTasks="true">
+					<Name>PlcTask</Name>
+				</Task>
+			</Tasks>
+		</System>
+		<Plc>
+			<Project GUID="{F5D1EAEA-4987-4C34-844F-966F0D6AD97E}" Name="PLC1" PrjFilePath="PLC1\PLC1.plcproj" TmcFilePath="PLC1\PLC1.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="PLC1\PLC1.tmc">
+					<Name>PLC1 Instance</Name>
+					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
+					<Vars VarGrpType="1">
+						<Name>PlcTask Inputs</Name>
+						<Var>
+							<Name>MAINVARS.Ana0</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>MAINVARS.Ana1</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>MAINVARS.BitIn0</Name>
+							<Comment><![CDATA[ Limit 1/1]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAINVARS.BitIn1</Name>
+							<Comment><![CDATA[ Limit 1/2]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAINVARS.BitOut10</Name>
+							<Comment><![CDATA[  SetSpeed 1]]></Comment>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>MAINVARS.BitOut11</Name>
+							<Comment><![CDATA[  SetSpeed 2]]></Comment>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>MAINVARS.BitOut12</Name>
+							<Comment><![CDATA[  ToPosition 1]]></Comment>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>MAINVARS.BitOut13</Name>
+							<Comment><![CDATA[  ToPosition 2]]></Comment>
+							<Type>REAL</Type>
+						</Var>
+						<Var>
+							<Name>MAINVARS.BitIn2</Name>
+							<Comment><![CDATA[ Limit 2/1]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAINVARS.BitIn3</Name>
+							<Comment><![CDATA[ Limit 2/2]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAINVARS.BitIn4</Name>
+							<Comment><![CDATA[ Busy M1]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAINVARS.BitIn5</Name>
+							<Comment><![CDATA[ Busy M1]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAINVARS.BitIn6</Name>
+							<Comment><![CDATA[ Alarm M1]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAINVARS.BitIn7</Name>
+							<Comment><![CDATA[ Alarm M2]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAINVARS.BitIn8</Name>
+							<Comment><![CDATA[ M1 IsHomed]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAINVARS.BitIn9</Name>
+							<Comment><![CDATA[ M2 IsHomed]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+					</Vars>
+					<Vars VarGrpType="2">
+						<Name>PlcTask Outputs</Name>
+						<Var>
+							<Name>MAINVARS.BitOut0</Name>
+							<Comment><![CDATA[ Enable motor 1]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAINVARS.BitOut1</Name>
+							<Comment><![CDATA[ Direction motor 1 ]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAINVARS.BitOut2</Name>
+							<Comment><![CDATA[ Step motor 1]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAINVARS.BitOut3</Name>
+							<Comment><![CDATA[ BUSY motor 1]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAINVARS.BitOut4</Name>
+							<Comment><![CDATA[ Alarm motor 1]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAINVARS.BitOut5</Name>
+							<Comment><![CDATA[ Enable motor 2 ]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAINVARS.BitOut6</Name>
+							<Comment><![CDATA[ Direction  motor 2]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAINVARS.BitOut7</Name>
+							<Comment><![CDATA[ Step Motor 2]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAINVARS.BitOut8</Name>
+							<Comment><![CDATA[  Busy motor 2]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAINVARS.BitOut9</Name>
+							<Comment><![CDATA[ Alamrm motor 2 ]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+					</Vars>
+					<UnrestoredVarLinks ImportTime="2020-01-01T15:18:06">
+						<OwnerA Name="InputDst" Prefix="TIPC^PLC1^PLC1 Instance" Type="1">
+							<OwnerB Name="TIID^Device 1 (EtherCAT)^Box 1 (EasyCAT 32+32)">
+								<Link VarA="MAIN.BitIn0" TypeA="UINT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="Inputs^Byte0" Size="8" RestoreInfo="ANotFound"/>
+								<Link VarA="MAIN.BitIn1" TypeA="UINT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="Inputs^Byte1" Size="8" RestoreInfo="ANotFound"/>
+							</OwnerB>
+						</OwnerA>
+						<OwnerA Name="OutputSrc" Prefix="TIPC^PLC1^PLC1 Instance" Type="2">
+							<OwnerB Name="TIID^Device 1 (EtherCAT)^Box 1 (EasyCAT 32+32)">
+								<Link VarA="MAIN.BitOut0" TypeA="UINT" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="Outputs^Byte0" Size="8" RestoreInfo="ANotFound"/>
+								<Link VarA="MAIN.BitOut1" TypeA="UINT" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="Outputs^Byte1" Size="8" RestoreInfo="ANotFound"/>
+								<Link VarA="MAIN.BitOut2" TypeA="UINT" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="Outputs^Byte2" Size="8" RestoreInfo="ANotFound"/>
+								<Link VarA="MAIN.BitOut3" TypeA="UINT" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="Outputs^Byte3" Size="8" RestoreInfo="ANotFound"/>
+							</OwnerB>
+						</OwnerA>
+					</UnrestoredVarLinks>
+					<TaskPouOids>
+						<TaskPouOid Prio="20" OTCID="#x08502001"/>
+					</TaskPouOids>
+				</Instance>
+			</Project>
+		</Plc>
+		<Io>
+			<Device Id="1" DevType="111" DevFlags="#x0003" AmsPort="28673" AmsNetId="192.168.1.8.2.1" RemoteName="Device 1 (EtherCAT)">
+				<Name>Device 1 (EtherCAT)</Name>
+				<AddressInfo>
+					<Pnp>
+						<DeviceDesc>Ethernet 3 (TwinCAT-Intel PCI Ethernet Adapter (Gig</DeviceDesc>
+						<DeviceName>\DEVICE\{A0B922FD-D8DC-4371-A79A-E8128676A829}</DeviceName>
+						<DeviceData>6805caaf430c</DeviceData>
+					</Pnp>
+				</AddressInfo>
+				<Image Id="1" AddrType="9" ImageType="3">
+					<Name>Image</Name>
+				</Image>
+				<Box Id="2" BoxType="9099">
+					<Name>Box 2 (EasyCAT 32+32 rev 1)</Name>
+					<ImageId>65</ImageId>
+					<EtherCAT SlaveType="1" PdiType="#x0380" CycleMBoxPollingTime="0" VendorId="#x0000079a" ProductCode="#x00defede" RevisionNo="#x00005a01" CheckRevisionNoType="2" PortPhys="17" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type=" Generic 32+32 bytes rev 1 " Desc="EasyCAT 32+32 rev 1" PortABoxInfo="#x00ffffff">
+						<SyncMan>001020006400010003000000000000000000001064010000</SyncMan>
+						<SyncMan>001220002000010004000000000000000000001220010000</SyncMan>
+						<Fmmu>0000000000000000001000020100000001000000000000000000000000000000</Fmmu>
+						<Fmmu>0000000000000000001200010100000002000000000000000000000000000000</Fmmu>
+						<DcMode>534d5f53796e63206f72204173796e00534d5f53796e63206f72204173796e6300000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000</DcMode>
+						<DcMode>44435f53796e6300000000000000000044435f53796e63000000000000000000000000000000000000000000000000000000000040a1387700000000000000030100000000000000000000000000000000000000000000000000000000000000</DcMode>
+						<Pdo Name="Inputs" Index="#x1a00" Flags="#x0011" SyncMan="1">
+							<Entry Name="Byte0" Index="#x0006" Sub="#x01">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte1" Index="#x0006" Sub="#x02">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte2" Index="#x0006" Sub="#x03">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte3" Index="#x0006" Sub="#x04">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte4" Index="#x0006" Sub="#x05">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte5" Index="#x0006" Sub="#x06">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte6" Index="#x0006" Sub="#x07">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte7" Index="#x0006" Sub="#x08">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte8" Index="#x0006" Sub="#x09">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte9" Index="#x0006" Sub="#x0a">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte10" Index="#x0006" Sub="#x0b">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte11" Index="#x0006" Sub="#x0c">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte12" Index="#x0006" Sub="#x0d">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte13" Index="#x0006" Sub="#x0e">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte14" Index="#x0006" Sub="#x0f">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte15" Index="#x0006" Sub="#x10">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte16" Index="#x0006" Sub="#x11">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte17" Index="#x0006" Sub="#x12">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte18" Index="#x0006" Sub="#x13">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte19" Index="#x0006" Sub="#x14">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte20" Index="#x0006" Sub="#x15">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte21" Index="#x0006" Sub="#x16">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte22" Index="#x0006" Sub="#x17">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte23" Index="#x0006" Sub="#x18">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte24" Index="#x0006" Sub="#x19">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte25" Index="#x0006" Sub="#x1a">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte26" Index="#x0006" Sub="#x1b">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte27" Index="#x0006" Sub="#x1c">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte28" Index="#x0006" Sub="#x1d">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte29" Index="#x0006" Sub="#x1e">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte30" Index="#x0006" Sub="#x1f">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte31" Index="#x0006" Sub="#x20">
+								<Type>USINT</Type>
+							</Entry>
+						</Pdo>
+						<Pdo Name="Outputs" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="0">
+							<Entry Name="Byte0" Index="#x0005" Sub="#x01">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte1" Index="#x0005" Sub="#x02">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte2" Index="#x0005" Sub="#x03">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte3" Index="#x0005" Sub="#x04">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte4" Index="#x0005" Sub="#x05">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte5" Index="#x0005" Sub="#x06">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte6" Index="#x0005" Sub="#x07">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte7" Index="#x0005" Sub="#x08">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte8" Index="#x0005" Sub="#x09">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte9" Index="#x0005" Sub="#x0a">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte10" Index="#x0005" Sub="#x0b">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte11" Index="#x0005" Sub="#x0c">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte12" Index="#x0005" Sub="#x0d">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte13" Index="#x0005" Sub="#x0e">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte14" Index="#x0005" Sub="#x0f">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte15" Index="#x0005" Sub="#x10">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte16" Index="#x0005" Sub="#x11">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte17" Index="#x0005" Sub="#x12">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte18" Index="#x0005" Sub="#x13">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte19" Index="#x0005" Sub="#x14">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte20" Index="#x0005" Sub="#x15">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte21" Index="#x0005" Sub="#x16">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte22" Index="#x0005" Sub="#x17">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte23" Index="#x0005" Sub="#x18">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte24" Index="#x0005" Sub="#x19">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte25" Index="#x0005" Sub="#x1a">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte26" Index="#x0005" Sub="#x1b">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte27" Index="#x0005" Sub="#x1c">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte28" Index="#x0005" Sub="#x1d">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte29" Index="#x0005" Sub="#x1e">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte30" Index="#x0005" Sub="#x1f">
+								<Type>USINT</Type>
+							</Entry>
+							<Entry Name="Byte31" Index="#x0005" Sub="#x20">
+								<Type>USINT</Type>
+							</Entry>
+						</Pdo>
+					</EtherCAT>
+				</Box>
+				<EtherCAT/>
+			</Device>
+		</Io>
+	</Project>
+	<Mappings>
+		<MappingInfo Identifier="{00000000-2001-0850-0020-500810000403}" Id="#x02030010"/>
+		<OwnerA Name="TIPC^PLC1^PLC1 Instance">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Box 2 (EasyCAT 32+32 rev 1)">
+				<Link VarA="PlcTask Inputs^MAINVARS.BitIn0" VarB="Inputs^Byte6" Size="1"/>
+				<Link VarA="PlcTask Inputs^MAINVARS.BitIn1" VarB="Inputs^Byte6" Size="1" OffsB="1"/>
+				<Link VarA="PlcTask Inputs^MAINVARS.BitIn2" VarB="Inputs^Byte6" Size="1" OffsB="2"/>
+				<Link VarA="PlcTask Inputs^MAINVARS.BitIn3" VarB="Inputs^Byte6" Size="1" OffsB="3"/>
+				<Link VarA="PlcTask Inputs^MAINVARS.BitIn4" VarB="Inputs^Byte6" Size="1" OffsB="4"/>
+				<Link VarA="PlcTask Inputs^MAINVARS.BitIn5" VarB="Inputs^Byte6" Size="1" OffsB="5"/>
+				<Link VarA="PlcTask Inputs^MAINVARS.BitIn6" VarB="Inputs^Byte6" Size="1" OffsB="6"/>
+				<Link VarA="PlcTask Inputs^MAINVARS.BitIn7" VarB="Inputs^Byte6" Size="1" OffsB="7"/>
+				<Link VarA="PlcTask Outputs^MAINVARS.BitOut0" VarB="Outputs^Byte0" Size="1"/>
+				<Link VarA="PlcTask Outputs^MAINVARS.BitOut1" VarB="Outputs^Byte0" Size="1" OffsB="1"/>
+				<Link VarA="PlcTask Outputs^MAINVARS.BitOut2" VarB="Outputs^Byte0" Size="1" OffsB="2"/>
+				<Link VarA="PlcTask Outputs^MAINVARS.BitOut3" VarB="Outputs^Byte0" Size="1" OffsB="3"/>
+				<Link VarA="PlcTask Outputs^MAINVARS.BitOut4" VarB="Outputs^Byte0" Size="1" OffsB="4"/>
+				<Link VarA="PlcTask Outputs^MAINVARS.BitOut5" VarB="Outputs^Byte0" Size="1" OffsB="5"/>
+				<Link VarA="PlcTask Outputs^MAINVARS.BitOut6" VarB="Outputs^Byte0" Size="1" OffsB="6"/>
+				<Link VarA="PlcTask Outputs^MAINVARS.BitOut7" VarB="Outputs^Byte0" Size="1" OffsB="7"/>
+				<Link VarA="PlcTask Outputs^MAINVARS.BitOut8" VarB="Outputs^Byte1" Size="1"/>
+				<Link VarA="PlcTask Outputs^MAINVARS.BitOut9" VarB="Outputs^Byte1" Size="1" OffsB="1"/>
+			</OwnerB>
+		</OwnerA>
+	</Mappings>
+</TcSmProject>

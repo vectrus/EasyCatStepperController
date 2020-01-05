@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.2">
+  <POU Name="MAIN" Id="{0cc6bac2-3411-4408-888a-7309f449fec0}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	
+	stHoles : ST_HOLES;
+	i : DINT;
+	aHoles : ARRAY [0..NUM_HOLES] OF ST_HOLES;
+	
+END_VAR
+VAR CONSTANT
+	NUM_HOLES : DINT := 2;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// Check MAchineState and Alarms
+// Check for alarms and act on it if necessairy.
+MAINVARS.heartbeat := MAINVARS.heartbeat + 1;
+
+//MAINVARS.BitOut0 := MAINVARS.heartbeat MOD 2 = 0;
+//MAINVARS.BitOut1 := MAINVARS.heartbeat MOD 4 = 0;
+//MAINVARS.BitOut2 := MAINVARS.heartbeat MOD 8 = 0;
+//MAINVARS.BitOut3 := MAINVARS.heartbeat MOD 16 = 0;
+
+
+// If there's no globalalarm then proceed normally;
+IF MAINVARS.GlobalAlarm = FALSE THEN
+	CASE MAINVARS.MachineState  OF
+		0:
+			// Do Nothing Machine is in rest mode
+			MAINVARS.BitOut0 := TRUE; // Disabled
+			MAINVARS.BitOut1 := FALSE; // CW / CCW
+			MAINVARS.BitOut2 := FALSE; // Disabled
+			MAINVARS.BitOut3 := FALSE; // !Enabled
+			MAINVARS.BitOut4 := FALSE; // !Enabled
+			
+			MAINVARS.BitOut5 := TRUE; // Disabled
+			MAINVARS.BitOut6 := FALSE; // CW / CCW
+			MAINVARS.BitOut7 := FALSE; // Disabled
+			MAINVARS.BitOut8 := FALSE; // !Enabled
+			MAINVARS.BitOut9 := FALSE; // !Enabled
+			
+			MAINVARS.MachineState := 0;
+			MAINVARS.AlarmMessage := 'Ready';
+			IF(MAINVARS.Start = TRUE AND MAINVARS.PreviousMachineState <> 20) THEN
+				// Set previous and current machine state for next step	
+				MAINVARS.PreviousMachineState := 0;
+				MAINVARS.MachineState := 10;
+			END_IF
+		10: 
+			// Home X
+			MAINVARS.AlarmMessage := 'Homing X';
+			REPEAT
+				MAINVARS.BitOut0 := FALSE; // !Enabled
+				MAINVARS.BitOut1 := TRUE; // !Enabled
+				MAINVARS.BitOut2 := TRUE; // !Enabled
+				MAINVARS.BitOut3 := TRUE; // !Enabled
+				MAINVARS.BitIn8 := FALSE;   // IsHomed
+			UNTIL 
+				MAINVARS.BitIn0 = FALSE
+			END_REPEAT;
+
+				
+			
+//			IF MAINVARS.BitIn0 <> FALSE  THEN
+//				MAINVARS.BitOut0 := FALSE; // !Enabled
+//				MAINVARS.BitOut1 := TRUE; // !Enabled
+//				MAINVARS.BitOut2 := TRUE; // !Enabled
+//				MAINVARS.BitOut3 := TRUE; // !Enabled
+//				MAINVARS.BitIn8 := FALSE;   // IsHomed
+//			ELSE 
+//				MAINVARS.BitOut0 := TRUE; // Disabled M1
+//				MAINVARS.BitOut1 := TRUE; // M1 CW
+//				MAINVARS.BitOut2 := FALSE; // NO STEPS
+//				MAINVARS.BitOut3 := FALSE; // NOT BUSY
+//				MAINVARS.BitIn8 := TRUE;   // IsHomed
+//				MAINVARS.PreviousMachineState := 10;
+//				MAINVARS.MachineState := 20;
+//			END_IF
+			
+		
+			
+		20:
+			/// Home Y
+			MAINVARS.AlarmMessage := 'Homing Y';
+			
+			// Set previous and current machine state for next step	
+			
+			
+			IF MAINVARS.BitIn0 <> FALSE  THEN
+				MAINVARS.BitOut5 := FALSE; // !Enabled
+				MAINVARS.BitOut6 := TRUE; // !Enabled
+				MAINVARS.BitOut7 := TRUE; // !Enabled
+				MAINVARS.BitOut8 := TRUE; // !Enabled
+				MAINVARS.BitIn9 := FALSE;   // IsHomed
+			ELSE 
+				MAINVARS.BitOut5 := TRUE; // Disabled M1
+				MAINVARS.BitOut6 := TRUE; // M1 CW
+				MAINVARS.BitOut7 := FALSE; // NO STEPS
+				MAINVARS.BitOut8 := FALSE; // NOT BUSY
+				MAINVARS.BitIn9 := TRUE;   // IsHomed
+				MAINVARS.Start := FALSE;
+				MAINVARS.PreviousMachineState := 20;
+				MAINVARS.MachineState := 0;
+			END_IF
+			
+			
+		
+	   999: // Handle error;
+			IF MAINVARS.GlobalAlarm = TRUE THEN
+				MAINVARS.EmergencyStop := 1;
+				MAINVARS.AlarmMessage := 'Alarm: ';
+				MAINVARS.ContToNextStage := 0;	
+				// Depending on the machine state take action.
+				
+			END_IF
+			
+			  
+	END_CASE
+END_IF
+
+
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="8" Count="1" />
+      <LineId Id="16" Count="0" />
+      <LineId Id="134" Count="0" />
+      <LineId Id="148" Count="2" />
+      <LineId Id="138" Count="0" />
+      <LineId Id="135" Count="0" />
+      <LineId Id="17" Count="5" />
+      <LineId Id="168" Count="1" />
+      <LineId Id="167" Count="0" />
+      <LineId Id="172" Count="0" />
+      <LineId Id="184" Count="0" />
+      <LineId Id="170" Count="0" />
+      <LineId Id="180" Count="2" />
+      <LineId Id="179" Count="0" />
+      <LineId Id="185" Count="0" />
+      <LineId Id="183" Count="0" />
+      <LineId Id="157" Count="0" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="158" Count="0" />
+      <LineId Id="226" Count="1" />
+      <LineId Id="159" Count="1" />
+      <LineId Id="25" Count="1" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="239" Count="0" />
+      <LineId Id="243" Count="3" />
+      <LineId Id="240" Count="1" />
+      <LineId Id="248" Count="0" />
+      <LineId Id="242" Count="0" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="41" Count="0" />
+      <LineId Id="145" Count="0" />
+      <LineId Id="186" Count="0" />
+      <LineId Id="146" Count="0" />
+      <LineId Id="161" Count="1" />
+      <LineId Id="171" Count="0" />
+      <LineId Id="197" Count="0" />
+      <LineId Id="190" Count="0" />
+      <LineId Id="192" Count="2" />
+      <LineId Id="191" Count="0" />
+      <LineId Id="195" Count="0" />
+      <LineId Id="225" Count="0" />
+      <LineId Id="222" Count="0" />
+      <LineId Id="189" Count="0" />
+      <LineId Id="163" Count="0" />
+      <LineId Id="147" Count="0" />
+      <LineId Id="42" Count="1" />
+      <LineId Id="198" Count="4" />
+      <LineId Id="204" Count="12" />
+      <LineId Id="223" Count="1" />
+      <LineId Id="228" Count="0" />
+      <LineId Id="217" Count="2" />
+      <LineId Id="50" Count="0" />
+      <LineId Id="110" Count="0" />
+      <LineId Id="121" Count="5" />
+      <LineId Id="120" Count="0" />
+      <LineId Id="111" Count="6" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
